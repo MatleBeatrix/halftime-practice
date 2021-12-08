@@ -73,12 +73,13 @@ function filterTheCat(creatures){
     return cats;
     */
    const result = creatures.filter(animal => {
-       const newAnimal = {...animal};
        if (animal.type === "cat"){
-           newAnimal.note = "This is an amazing cat";  
-           return newAnimal;
+           //const newAnimal = JSON.parse(JSON.stringify(animal));
+           //newAnimal["note"] = "This is an amazing cat";  
+           return animal;
         }
     } );
+    result[0].note = "This is my amazing cat";
    return result;
 }
 
