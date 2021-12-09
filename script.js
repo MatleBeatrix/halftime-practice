@@ -47,8 +47,8 @@ function addNewArray(arr1, arr2){
    return arr1.concat(arr2);
 }
 
-console.log(addNewArray(array1,array2));
-console.log(array1)
+//console.log(addNewArray(array1,array2));
+//console.log(array1)
 
 const array3 = [
     {
@@ -72,15 +72,30 @@ function filterTheCat(creatures){
     }
     return cats;
     */
+
+    /*
    const result = creatures.filter(animal => {
        if (animal.type === "cat"){
            //const newAnimal = JSON.parse(JSON.stringify(animal));
            //newAnimal["note"] = "This is an amazing cat";  
-           return animal;
+           return true;     //callback true vagy false -ra fordul le, azért nem lehet módosítani
         }
     } );
-    result[0].note = "This is my amazing cat";
-   return result;
+    //result[0].note = "This is my amazing cat";
+    */
+
+    /*
+    const result = creatures.map(creature => {
+        if (creature.type === "cat") {
+            //const newCreature = {...creature, note: "This is an amazing cat"};
+            //newCreature.note = "This is an amazing cat";
+            //return newCreature;
+            return {...creature, note: "This is an amazing cat"};
+        }
+    }).filter(creature => creature);
+    */
+    return creatures.map(creature => creature.type === "cat" ? {...creature, note: "This is an amazing cat"} : undefined).filter(creature => creature);
+
 }
 
 console.log(filterTheCat(array3));
